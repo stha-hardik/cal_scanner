@@ -1,5 +1,7 @@
+import 'package:cal_scanner/theme/app_colors.dart';
 import 'package:cal_scanner/app_widgets/buttons/back_button.dart';
 import 'package:cal_scanner/core/extensions/capital_first_extension.dart';
+import 'package:cal_scanner/core/privacy/photo_cleaner.dart';
 import 'package:cal_scanner/core/extensions/context_extension.dart';
 import 'package:cal_scanner/core/extensions/widget_extension.dart';
 import 'package:cal_scanner/features/calories/presentation/cubit/food_log_cubit.dart';
@@ -11,10 +13,105 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/entities/food.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class MealDetailScreen extends StatelessWidget {
+class MealDetailScreen extends StatefulWidget {
   final Food meal;
 
   const MealDetailScreen({super.key, required this.meal});
+
+  @override
+  State<MealDetailScreen> createState() => _MealDetailScreenState();
+}
+
+class _MealDetailScreenState extends State<MealDetailScreen> {
+  late Food meal = widget.meal;
+  bool _busy = false;
+
+  Future<void> _edit() async {
+    final photo = PhotoCleaner.freshPhoto(meal.photoPath);
+    final ctrl = TextEditingController(text: meal.note ?? '');
+    final note = await showModalBottomSheet<String>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: context.colors.surface,
+      builder: (ctx) => Padding(
+        padding: EdgeInsets.fromLTRB(
+            24, 24, 24, 24 + MediaQuery.of(ctx).viewInsets.bottom),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Edit meal', style: Theme.of(ctx).textTheme.titleLarge),
+            const SizedBox(height: 6),
+            Text(
+              photo != null
+                  ? 'Tell the AI what to fix. Your note and the photo are sent again to re-estimate this meal.'
+                  : 'The photo is gone (photos are deleted after 24 hours), so the AI will re-estimate from the meal name, its numbers and your note.',
+              style: TextStyle(color: ctx.colors.onSurfaceVariant, fontSize: 13),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: ctrl,
+              autofocus: true,
+              minLines: 2,
+              maxLines: 4,
+              maxLength: 300,
+              textCapitalization: TextCapitalization.sentences,
+              decoration: InputDecoration(
+                hintText: 'e.g. It was 2 eggs and 1 roti, not 4 eggs',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: FilledButton(
+                style: FilledButton.styleFrom(backgroundColor: AppColors.kOrange),
+                onPressed: () => Navigator.pop(ctx, ctrl.text),
+                child: const Text('Re-analyze'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (note == null || !mounted) return;
+    if (note.trim().isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Write a note first.')));
+      return;
+    }
+    final cubit = context.read<FoodLogCubit>();
+    setState(() => _busy = true);
+    final result = await cubit.reestimateMeal(meal, note);
+    if (!mounted) return;
+    setState(() => _busy = false);
+    await result.fold(
+      (f) async => ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Could not update: ${f.message}'))),
+      (updated) async {
+        final ok = await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text(updated.name.capitalizeFirst()),
+            content: Text(
+              'New estimate:\n${updated.calories.round()} kcal\n'
+              'Protein ${updated.protein.round()}g  Carbs ${updated.carbs.round()}g  Fat ${updated.fat.round()}g\n\n'
+              'Before: ${meal.calories.round()} kcal',
+            ),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Keep old')),
+              TextButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Save')),
+            ],
+          ),
+        );
+        if (ok == true && mounted) {
+          await cubit.updateMeal(updated);
+          if (mounted) setState(() => meal = updated);
+        }
+      },
+    );
+  }
 
   void _deleteMeal(BuildContext context) {
     showDialog(
@@ -25,7 +122,7 @@ class MealDetailScreen extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Cancel', style: TextStyle(color: Colors.black)),
+            child: Text('Cancel', style: TextStyle(color: AppColors.kPureBlack)),
           ),
           TextButton(
             onPressed: () {
@@ -42,6 +139,7 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final photo = PhotoCleaner.freshPhoto(meal.photoPath);
     return Scaffold(
       backgroundColor: context.colors.surface,
       appBar: AppBar(
@@ -51,16 +149,38 @@ class MealDetailScreen extends StatelessWidget {
         leading: AppBackButton(),
         actions: [
           IconButton(
+            tooltip: 'Edit',
+            icon: _busy
+                ? const SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : Icon(CupertinoIcons.pencil, color: context.colors.onSurface),
+            onPressed: _busy ? null : _edit,
+          ),
+          IconButton(
             icon: Icon(CupertinoIcons.delete, color: Colors.red),
             onPressed: () => _deleteMeal(context),
           ).paddingOnly(right: 10),
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (photo != null)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: Image.file(
+                  photo,
+                  height: 180,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            if (photo != null) SizedBox(height: 24),
             if (meal.imageUrl != null)
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
@@ -105,7 +225,7 @@ class MealDetailScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.kCard,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
@@ -116,7 +236,8 @@ class MealDetailScreen extends StatelessWidget {
                 ],
               ),
               padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-              child: Row(
+              child: IntrinsicHeight(
+                child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   MacroItem(
@@ -139,6 +260,7 @@ class MealDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              ),
             ),
 
             SizedBox(height: 32),
@@ -149,6 +271,12 @@ class MealDetailScreen extends StatelessWidget {
               label: 'Logged',
               value: timeago.format(meal.timestamp),
             ),
+            if ((meal.note ?? '').isNotEmpty)
+              _DetailRow(
+                icon: Icons.notes,
+                label: 'Note',
+                value: meal.note!,
+              ),
           ],
         ),
       ),
@@ -185,13 +313,18 @@ class _DetailRow extends StatelessWidget {
               ),
             ),
           ),
-          Text(
+          SizedBox(width: 12),
+          Flexible(
+            flex: 2,
+            child: Text(
             value,
+            textAlign: TextAlign.end,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,
               color: context.colors.onSurfaceVariant,
             ),
+          ),
           ),
         ],
       ),

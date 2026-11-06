@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_4x4_desc">Today\'s calories and macros</string>
+    <string name="widget_2x2_desc">Today\'s calories at a glance</string>
+</resources>

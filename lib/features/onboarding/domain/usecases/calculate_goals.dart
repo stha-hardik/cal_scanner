@@ -30,6 +30,7 @@ class CalculateGoals {
       final macros = CalorieCalculator.calculateMacroGoals(
         calories: adjusted,
         goal: goal,
+        weight: weight,
       );
 
       return right(

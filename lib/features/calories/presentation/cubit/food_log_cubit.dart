@@ -2,7 +2,12 @@ import 'dart:io';
 
 import 'package:cal_scanner/features/calories/presentation/cubit/food_log_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
 
+import '../../../../core/error/failure.dart';
+
+import '../../../../core/privacy/photo_cleaner.dart';
+import '../../../../core/widget/home_widget_sync.dart';
 import '../../domain/entities/food.dart';
 import '../../domain/usecases/add_food.dart';
 import '../../domain/usecases/delete_food.dart';
@@ -78,6 +83,19 @@ class FoodLogCubit extends Cubit<FoodLogState> {
         clearError: true,
       ),
     );
+
+    // Keep the home screen widgets in sync (only for today's log).
+    final now = DateTime.now();
+    final sel = state.selectedDate;
+    if (sel.year == now.year && sel.month == now.month && sel.day == now.day) {
+      HomeWidgetSync.update(
+        calories: totals['calories'] ?? 0,
+        protein: totals['protein'] ?? 0,
+        carbs: totals['carbs'] ?? 0,
+        fat: totals['fat'] ?? 0,
+        meals: meals.length,
+      );
+    }
   }
 
   Future<void> addMeal(Food meal) async {
@@ -101,9 +119,10 @@ class FoodLogCubit extends Cubit<FoodLogState> {
     );
   }
 
-  Future<void> addMealFromImage(File image) async {
+  Future<void> addMealFromImage(File image, {String? note}) async {
     emit(state.copyWith(isScanning: true, selectedImage: image));
-    final result = await _detectFoodFromImage(image);
+    final result = await _detectFoodFromImage(image, note: note);
+    PhotoCleaner.purge(); // old photos only; today's stay for up to 24 hours
     result.fold(
       (failure) {
         emit(
@@ -114,7 +133,14 @@ class FoodLogCubit extends Cubit<FoodLogState> {
           ),
         );
       },
-      (meal) async {
+      (detected) async {
+        final cleanNote = (note ?? '').trim();
+        // Keep the photo for up to 24 hours so the meal can be edited and re-analysed.
+        final kept = await PhotoCleaner.keepCopy(image, detected.id);
+        final meal = detected.copyWith(
+          note: cleanNote.isEmpty ? null : cleanNote,
+          photoPath: kept,
+        );
         emit(
           state.copyWith(
             scannedMeal: meal,
@@ -149,7 +175,18 @@ class FoodLogCubit extends Cubit<FoodLogState> {
     );
   }
 
+  /// Asks the AI to correct a meal using the user's note (and the photo if it
+  /// still exists). Returns the proposed new values; nothing is saved yet.
+  Future<Either<Failure, Food>> reestimateMeal(Food meal, String note) {
+    return _detectFoodFromImage.reestimate(
+      meal,
+      note,
+      image: PhotoCleaner.freshPhoto(meal.photoPath),
+    );
+  }
+
   Future<void> deleteMeal(Food meal) async {
+    PhotoCleaner.deleteKept(meal.photoPath);
     final result = await _deleteFood(meal);
     result.match(
       (l) => emit(state.copyWith(error: l.message)),

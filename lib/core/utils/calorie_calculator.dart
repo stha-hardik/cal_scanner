@@ -43,6 +43,10 @@ class CalorieCalculator {
     return switch (goal) {
       'Weight Loss' => (maintenanceCalories * 0.8).round(), // 20% deficit
       'Muscle Gain' => (maintenanceCalories * 1.15).round(), // 15% surplus
+      // Body recomposition: eat close to maintenance with a small deficit
+      // (10%, never more than 300 kcal). Larger deficits blunt muscle gain.
+      'Body Recomposition' => maintenanceCalories -
+          (maintenanceCalories * 0.10).clamp(0, 300).round(),
       _ => maintenanceCalories // Maintenance
     };
   }
@@ -52,7 +56,21 @@ class CalorieCalculator {
   static Map<String, int> calculateMacroGoals({
     required int calories,
     required String goal,
+    double? weight, // kg, used for the protein target of body recomposition
   }) {
+    // Body recomposition: protein is set per kg of body weight (2.2 g/kg, the
+    // top of the 1.6-2.2 g/kg range), fat 25% of calories, carbs the rest.
+    if (goal == 'Body Recomposition' && weight != null && weight > 0) {
+      final protein = (weight * 2.2).round();
+      final fat = (calories * 0.25 / 9).round();
+      final carbs = ((calories - protein * 4 - fat * 9) / 4).round();
+      return {
+        'proteinGoal': protein,
+        'fatGoal': fat,
+        'carbsGoal': carbs < 0 ? 0 : carbs,
+      };
+    }
+
     // Initialize default macro ratios
     double proteinPercent;
     double fatPercent;
@@ -119,6 +137,7 @@ class CalorieCalculator {
     double proteinMultiplier = switch (goal) {
       'Weight Loss' => 2.0, // Higher protein for muscle preservation
       'Muscle Gain' => 2.2, // Higher protein for muscle growth
+      'Body Recomposition' => 2.2, // High protein to build muscle while leaner
       _ => 1.8 // Maintenance
     };
 

@@ -101,7 +101,7 @@ class _GenderOption extends StatelessWidget {
               child: Text(
                 label,
                 style: AppTypography.headlineSmall.copyWith(
-                  color: isSelected ? Colors.black : Colors.grey,
+                  color: isSelected ? AppColors.kPureBlack : Colors.grey,
                 ),
               ),
             ),
@@ -109,11 +109,11 @@ class _GenderOption extends StatelessWidget {
               Container(
                 width: 20,
                 height: 20,
-                decoration: const BoxDecoration(
-                  color: Colors.black,
+                decoration: BoxDecoration(
+                  color: AppColors.kPureBlack,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.check, size: 13, color: Colors.white),
+                child: Icon(Icons.check, size: 13, color: AppColors.kWhite),
               ),
           ],
         ),

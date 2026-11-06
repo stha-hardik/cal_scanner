@@ -15,6 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../chat/presentation/chat_screen.dart';
+import '../../../settings/presentation/settings_screen.dart';
 import '../widgets/daily_tracker.dart';
 import '../widgets/meal_list.dart';
 
@@ -35,6 +37,22 @@ class _HomeScreenState extends State<HomeScreen> {
           style: AppTypography.displaySmall.copyWith(fontSize: 19.sp),
         ),
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          tooltip: 'AI chat',
+          icon: const Icon(Icons.chat_bubble_outline),
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const ChatScreen()),
+          ),
+        ),
+        actions: [
+          IconButton(
+            tooltip: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const SettingsScreen()),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         bottom: false,
@@ -95,8 +113,35 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.kOrange,
         onPressed: () async {
+          final source = await showModalBottomSheet<ImageSource>(
+            context: context,
+            builder: (ctx) => SafeArea(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.photo_camera_outlined),
+                    title: const Text('Take a photo'),
+                    onTap: () => Navigator.pop(ctx, ImageSource.camera),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.photo_library_outlined),
+                    title: const Text('Choose from gallery'),
+                    onTap: () => Navigator.pop(ctx, ImageSource.gallery),
+                  ),
+                ],
+              ),
+            ),
+          );
+          if (source == null) return;
           final picker = ImagePicker();
-          final picked = await picker.pickImage(source: ImageSource.camera);
+          // Resized so big gallery photos stay within the AI's image size limit.
+          final picked = await picker.pickImage(
+            source: source,
+            maxWidth: 1600,
+            maxHeight: 1600,
+            imageQuality: 85,
+          );
           if (picked == null) return;
           final file = File(picked.path);
           if (!context.mounted) return;

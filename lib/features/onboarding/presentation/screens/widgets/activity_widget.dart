@@ -87,10 +87,10 @@ class _ActivityCard extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.kCard,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: isSelected ? Colors.black : Colors.grey.shade200,
+            color: isSelected ? AppColors.kPureBlack : AppColors.kPrimaryGrey,
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -107,7 +107,7 @@ class _ActivityCard extends StatelessWidget {
                       fontWeight: isSelected
                           ? FontWeight.w700
                           : FontWeight.w500,
-                      color: Colors.black,
+                      color: AppColors.kPureBlack,
                     ),
                   ),
                   2.kH,
@@ -123,9 +123,9 @@ class _ActivityCard extends StatelessWidget {
             if (isSelected)
               CircleAvatar(
                 radius: 12.sp,
-                backgroundColor: Colors.black,
+                backgroundColor: AppColors.kPureBlack,
 
-                child: const Icon(Icons.check, color: Colors.white, size: 16),
+                child: Icon(Icons.check, color: AppColors.kWhite, size: 16),
               ),
           ],
         ),

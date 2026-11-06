@@ -10,6 +10,8 @@ class FoodModel {
   final double quantity;
   final String? imageUrl;
   final DateTime timestamp;
+  final String? note;
+  final String? photoPath;
 
   const FoodModel({
     required this.id,
@@ -21,6 +23,8 @@ class FoodModel {
     required this.quantity,
     this.imageUrl,
     required this.timestamp,
+    this.note,
+    this.photoPath,
   });
 
   factory FoodModel.fromJson(Map<String, dynamic> json) {
@@ -34,6 +38,8 @@ class FoodModel {
       quantity: (json['quantity'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String?,
       timestamp: DateTime.parse(json['timestamp'] as String),
+      note: json['note'] as String?,
+      photoPath: json['photoPath'] as String?,
     );
   }
 
@@ -48,6 +54,8 @@ class FoodModel {
       'quantity': quantity,
       'imageUrl': imageUrl,
       'timestamp': timestamp.toIso8601String(),
+      'note': note,
+      'photoPath': photoPath,
     };
   }
 
@@ -62,6 +70,8 @@ class FoodModel {
       quantity: quantity,
       imageUrl: imageUrl,
       timestamp: timestamp,
+      note: note,
+      photoPath: photoPath,
     );
   }
 
@@ -76,6 +86,8 @@ class FoodModel {
       quantity: food.quantity,
       imageUrl: food.imageUrl,
       timestamp: food.timestamp,
+      note: food.note,
+      photoPath: food.photoPath,
     );
   }
 }

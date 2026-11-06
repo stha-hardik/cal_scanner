@@ -125,6 +125,14 @@ ThemeData buildLightTheme() {
   return _buildTheme(colorScheme, AppPalettes.light);
 }
 
+ThemeData buildDarkTheme() {
+  final colorScheme = ColorScheme.fromSeed(
+    seedColor: const Color(0xfff9f6f1),
+    brightness: Brightness.dark,
+  ).copyWith(surface: const Color(0xFF121212));
+  return _buildTheme(colorScheme, AppPalettes.light);
+}
+
 CupertinoThemeData buildCupertinoTheme({required String primaryColorHex}) {
   final seed = _colorFromHex(
     primaryColorHex.isNotEmpty ? primaryColorHex : '#007AFF',

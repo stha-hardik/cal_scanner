@@ -84,7 +84,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               color: AppColors.kBlack.withValues(alpha: .5),
             ),
         filled: true,
-        fillColor: widget.fillColor ?? Colors.white,
+        fillColor: widget.fillColor ?? AppColors.kCard,
         prefixIcon: widget.prefixIcon,
 
         /// 👁 Eye Icon

@@ -1,3 +1,4 @@
+import 'package:cal_scanner/theme/app_colors.dart';
 import 'dart:io';
 import 'package:cal_scanner/app_widgets/buttons/back_button.dart';
 import 'package:cal_scanner/core/extensions/capital_first_extension.dart';
@@ -28,6 +29,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
   Food? _meal;
   String? _error;
   bool _scanStarted = false;
+  final _noteCtrl = TextEditingController();
 
   void _showDialog(BuildContext context) {
     _dialogShown = true;
@@ -68,14 +70,14 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted || _scanStarted) return;
-      _scanStarted = true;
-      context.read<FoodLogCubit>().addMealFromImage(widget.imageFile);
-    });
+  void _startScan() {
+    if (_scanStarted) return;
+    FocusScope.of(context).unfocus();
+    setState(() => _scanStarted = true);
+    context.read<FoodLogCubit>().addMealFromImage(
+          widget.imageFile,
+          note: _noteCtrl.text,
+        );
   }
 
   @override
@@ -91,6 +93,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
 
   @override
   void dispose() {
+    _noteCtrl.dispose();
     if (_dialogShown) {
       try {
         Navigator.of(context, rootNavigator: true).pop();
@@ -161,6 +164,66 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
                       ],
                     ),
                   ),
+                ] else if (!_scanStarted) ...[
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.file(
+                              widget.imageFile,
+                              height: 260,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          TextField(
+                            controller: _noteCtrl,
+                            maxLines: 3,
+                            minLines: 2,
+                            maxLength: 300,
+                            textCapitalization: TextCapitalization.sentences,
+                            decoration: InputDecoration(
+                              labelText: 'Add a note (optional)',
+                              hintText:
+                                  'e.g. 2 rotis with dal, cooked in little oil, small portion',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'The photo and your note are sent to the AI together. '
+                            'Only the text result is saved; the photo is deleted after 24 hours.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: context.colors.onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 52,
+                            child: FilledButton(
+                              style: FilledButton.styleFrom(
+                                backgroundColor: AppColors.kOrange,
+                              ),
+                              onPressed: _startScan,
+                              child: const Text(
+                                'Analyze',
+                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ] else if (_meal != null) ...[
                   Center(
                     child: ClipRRect(
@@ -196,9 +259,9 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
                       height: 1,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'calories',
-                    style: TextStyle(color: Colors.black54),
+                    style: TextStyle(color: AppColors.kBlack.withValues(alpha: .7)),
                   ),
 
                   const SizedBox(height: 30),

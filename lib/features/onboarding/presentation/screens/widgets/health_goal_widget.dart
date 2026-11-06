@@ -27,6 +27,12 @@ class HealthGoalWidget extends StatelessWidget {
       label: 'Gain Weight',
       icon: Icons.trending_up_rounded,
     ),
+    _GoalOption(
+      value: 'Body Recomposition',
+      label: 'Body Recomposition',
+      description: 'Build muscle and lose fat together',
+      icon: Icons.fitness_center_rounded,
+    ),
   ];
 
   @override
@@ -44,21 +50,23 @@ class HealthGoalWidget extends StatelessWidget {
           child: BlocBuilder<OnboardingCubit, OnboardingState>(
             builder: (context, state) {
               return Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: _goals.map((goal) {
-                    final isSelected = state.userGoal == goal.value;
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
-                      child: _GoalCard(
-                        goal: goal,
-                        isSelected: isSelected,
-                        onTap: () => context.read<OnboardingCubit>().updateGoal(
-                          goal.value,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: _goals.map((goal) {
+                      final isSelected = state.userGoal == goal.value;
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: _GoalCard(
+                          goal: goal,
+                          isSelected: isSelected,
+                          onTap: () => context
+                              .read<OnboardingCubit>()
+                              .updateGoal(goal.value),
                         ),
-                      ),
-                    );
-                  }).toList(),
+                      );
+                    }).toList(),
+                  ),
                 ),
               );
             },
@@ -72,11 +80,13 @@ class HealthGoalWidget extends StatelessWidget {
 class _GoalOption {
   final String value;
   final String label;
+  final String? description;
   final IconData icon;
 
   const _GoalOption({
     required this.value,
     required this.label,
+    this.description,
     required this.icon,
   });
 }
@@ -102,10 +112,10 @@ class _GoalCard extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.kCard,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isSelected ? Colors.black : Colors.grey.shade200,
+            color: isSelected ? AppColors.kPureBlack : AppColors.kPrimaryGrey,
             width: isSelected ? 1.5 : 1,
           ),
         ),
@@ -118,21 +128,35 @@ class _GoalCard extends StatelessWidget {
             ),
             const SizedBox(width: 12),
             Expanded(
-              child: Text(
-                goal.label,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                  color: isSelected ? AppColors.kPureBlack : AppColors.kgrey,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    goal.label,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: isSelected
+                          ? FontWeight.w700
+                          : FontWeight.w500,
+                      color: isSelected
+                          ? AppColors.kPureBlack
+                          : AppColors.kgrey,
+                    ),
+                  ),
+                  if (goal.description != null)
+                    Text(
+                      goal.description!,
+                      style: TextStyle(fontSize: 12, color: AppColors.kgrey),
+                    ),
+                ],
               ),
             ),
             if (isSelected)
               CircleAvatar(
                 radius: 12.sp,
-                backgroundColor: Colors.black,
+                backgroundColor: AppColors.kPureBlack,
 
-                child: const Icon(Icons.check, color: Colors.white, size: 16),
+                child: Icon(Icons.check, color: AppColors.kWhite, size: 16),
               ),
           ],
         ),

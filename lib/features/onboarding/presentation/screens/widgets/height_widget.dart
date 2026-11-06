@@ -74,7 +74,7 @@ class _HeightWeightWidgetState extends State<HeightWeightWidget> {
                   child: Container(
                     height: 45.h,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.kCard,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
@@ -164,7 +164,7 @@ class _HeightWeightWidgetState extends State<HeightWeightWidget> {
             child: Center(
               child: Text(
                 '$_selectedFeet . $_selectedInches  :  $_selectedWeight kg',
-                style: AppTypography.bodyLarge.copyWith(color: Colors.white),
+                style: AppTypography.bodyLarge.copyWith(color: AppColors.kWhite),
               ),
             ),
           ),
