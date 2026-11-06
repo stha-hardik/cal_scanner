@@ -31,6 +31,17 @@ Track what you eat. Understand your nutrition. Powered by AI.
 >
 > → [What changed in this fork](#what-changed-in-this-fork) · [Setup](#getting-started) · [Privacy & security](#privacy--security-in-this-fork)
 
+### 📲 Download the app (Android)
+
+**[Download cal-ai-v1.9.0.apk](downloads/cal-ai-v1.9.0.apk?raw=true)** (about 61 MB)
+
+This APK has **no API key built in**, so it is safe to share. After installing:
+1. Get a free key at [console.groq.com](https://console.groq.com).
+2. Open the app, tap the gear icon (**Settings**) and paste your key under **AI**, then tap **Save**.
+3. Optional: tap **Test model** to check it works.
+
+Android will ask you to allow installing from this source. The app is not on the Play Store. It was tested by automated tests only, not yet on many phones, so please open an issue if something breaks.
+
 ---
 
 ## Overview
