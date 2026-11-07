@@ -98,9 +98,9 @@ void main() {
     final cubit = sl<FoodLogCubit>();
     await t.pumpWidget(app(const SettingsScreen(), cubit: cubit));
     await t.pumpAndSettle();
-    final slider = find.byType(Slider);
+    final slider = find.byType(Slider).first; // the workout slider (plate/katori sliders come after it)
     await t.scrollUntilVisible(slider, 200, scrollable: find.byType(Scrollable).first);
-    expect(slider, findsOneWidget);
+    expect(find.byType(Slider), findsNWidgets(3));
     // drag fully right = Very Active
     await t.drag(slider, const Offset(2000, 0));
     await t.pumpAndSettle();

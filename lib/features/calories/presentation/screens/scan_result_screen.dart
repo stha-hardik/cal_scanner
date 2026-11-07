@@ -5,6 +5,7 @@ import 'package:cal_scanner/core/extensions/capital_first_extension.dart';
 import 'package:cal_scanner/core/extensions/context_extension.dart';
 import 'package:cal_scanner/core/extensions/num_extension.dart';
 import 'package:cal_scanner/core/extensions/widget_extension.dart';
+import 'package:cal_scanner/features/calories/presentation/widgets/breakdown_card.dart';
 import 'package:cal_scanner/features/calories/presentation/widgets/macros_card.dart';
 
 import 'package:cal_scanner/theme/app_typography.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide VerticalDivider;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../domain/entities/food.dart';
 import '../cubit/food_log_cubit.dart';
 import '../cubit/food_log_state.dart';
@@ -30,6 +32,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
   String? _error;
   bool _scanStarted = false;
   final _noteCtrl = TextEditingController();
+  File? _second;
 
   void _showDialog(BuildContext context) {
     _dialogShown = true;
@@ -77,7 +80,39 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
     context.read<FoodLogCubit>().addMealFromImage(
           widget.imageFile,
           note: _noteCtrl.text,
+          moreImages: _second == null ? const [] : [_second!],
         );
+  }
+
+  Future<void> _pickSecond() async {
+    final source = await showModalBottomSheet<ImageSource>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.photo_camera_outlined),
+              title: const Text('Take a photo'),
+              onTap: () => Navigator.pop(ctx, ImageSource.camera),
+            ),
+            ListTile(
+              leading: const Icon(Icons.photo_library_outlined),
+              title: const Text('Choose from gallery'),
+              onTap: () => Navigator.pop(ctx, ImageSource.gallery),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (source == null) return;
+    final picked = await ImagePicker().pickImage(
+      source: source,
+      maxWidth: 1600,
+      maxHeight: 1600,
+      imageQuality: 85,
+    );
+    if (picked != null && mounted) setState(() => _second = File(picked.path));
   }
 
   @override
@@ -179,7 +214,36 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 12),
+                          if (_second == null)
+                            OutlinedButton.icon(
+                              onPressed: _pickSecond,
+                              icon: const Icon(Icons.add_a_photo_outlined),
+                              label: const Text('Add a side photo (better portion size)'),
+                            )
+                          else
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.file(_second!, height: 70, width: 70, fit: BoxFit.cover),
+                                ),
+                                const SizedBox(width: 12),
+                                const Expanded(child: Text('Second angle added')),
+                                IconButton(
+                                  tooltip: 'Remove',
+                                  onPressed: () => setState(() => _second = null),
+                                  icon: const Icon(Icons.close),
+                                ),
+                              ],
+                            ),
+                          const SizedBox(height: 12),
+                          Text(
+                            'Tip: take one photo from above and one from the side, with your plate or katori in view.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 12, color: context.colors.onSurfaceVariant),
+                          ),
+                          const SizedBox(height: 16),
                           TextField(
                             controller: _noteCtrl,
                             maxLines: 3,
@@ -189,7 +253,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
                             decoration: InputDecoration(
                               labelText: 'Add a note (optional)',
                               hintText:
-                                  'e.g. 2 rotis with dal, cooked in little oil, small portion',
+                                  'e.g. 2 sel roti, 5 gwaramari, chiya',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
@@ -266,6 +330,13 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
 
                   const SizedBox(height: 30),
                   _FoodMacros(meal: _meal!),
+                  if ((_meal!.details ?? '').isNotEmpty) ...[
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: BreakdownCard(details: _meal!.details!),
+                    ),
+                  ],
                   const SizedBox(height: 40),
                   Padding(
                     padding: pagePadding * 2,

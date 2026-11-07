@@ -2,6 +2,7 @@ import 'package:cal_scanner/theme/app_colors.dart';
 import 'package:cal_scanner/app_widgets/buttons/back_button.dart';
 import 'package:cal_scanner/core/extensions/capital_first_extension.dart';
 import 'package:cal_scanner/core/privacy/photo_cleaner.dart';
+import 'package:cal_scanner/features/calories/presentation/widgets/breakdown_card.dart';
 import 'package:cal_scanner/core/extensions/context_extension.dart';
 import 'package:cal_scanner/core/extensions/widget_extension.dart';
 import 'package:cal_scanner/features/calories/presentation/cubit/food_log_cubit.dart';
@@ -271,6 +272,11 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
               label: 'Logged',
               value: timeago.format(meal.timestamp),
             ),
+            if ((meal.details ?? '').isNotEmpty) ...[
+              SizedBox(height: 24),
+              BreakdownCard(details: meal.details!),
+              SizedBox(height: 8),
+            ],
             if ((meal.note ?? '').isNotEmpty)
               _DetailRow(
                 icon: Icons.notes,

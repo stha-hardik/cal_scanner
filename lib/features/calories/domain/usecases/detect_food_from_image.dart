@@ -10,8 +10,8 @@ class DetectFoodFromImage {
   final FoodRepository _repo;
   DetectFoodFromImage(this._repo);
 
-  Future<Either<Failure, Food>> call(File image, {String? note}) {
-    return _repo.detectFoodFromImage(image, note: note);
+  Future<Either<Failure, Food>> call(File image, {String? note, List<File> moreImages = const []}) {
+    return _repo.detectFoodFromImage(image, note: note, moreImages: moreImages);
   }
 
   /// Asks the AI to correct an earlier estimate using the user's note

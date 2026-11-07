@@ -12,6 +12,7 @@ class FoodModel {
   final DateTime timestamp;
   final String? note;
   final String? photoPath;
+  final String? details;
 
   const FoodModel({
     required this.id,
@@ -25,6 +26,7 @@ class FoodModel {
     required this.timestamp,
     this.note,
     this.photoPath,
+    this.details,
   });
 
   factory FoodModel.fromJson(Map<String, dynamic> json) {
@@ -40,6 +42,7 @@ class FoodModel {
       timestamp: DateTime.parse(json['timestamp'] as String),
       note: json['note'] as String?,
       photoPath: json['photoPath'] as String?,
+      details: json['details'] as String?,
     );
   }
 
@@ -56,6 +59,7 @@ class FoodModel {
       'timestamp': timestamp.toIso8601String(),
       'note': note,
       'photoPath': photoPath,
+      'details': details,
     };
   }
 
@@ -72,6 +76,7 @@ class FoodModel {
       timestamp: timestamp,
       note: note,
       photoPath: photoPath,
+      details: details,
     );
   }
 
@@ -88,6 +93,7 @@ class FoodModel {
       timestamp: food.timestamp,
       note: food.note,
       photoPath: food.photoPath,
+      details: food.details,
     );
   }
 }

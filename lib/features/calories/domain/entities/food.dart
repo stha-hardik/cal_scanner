@@ -12,6 +12,9 @@ class Food {
   /// The user's own note about the meal (text only).
   final String? note;
 
+  /// Per-item breakdown text (what was recognised, grams, kcal, source).
+  final String? details;
+
   /// Temporary local copy of the photo (deleted after 24 hours).
   final String? photoPath;
 
@@ -27,6 +30,7 @@ class Food {
     required this.timestamp,
     this.note,
     this.photoPath,
+    this.details,
   });
 
   Food copyWith({
@@ -40,6 +44,7 @@ class Food {
     DateTime? timestamp,
     String? note,
     String? photoPath,
+    String? details,
   }) {
     return Food(
       id: id,
@@ -53,6 +58,7 @@ class Food {
       timestamp: timestamp ?? this.timestamp,
       note: note ?? this.note,
       photoPath: photoPath ?? this.photoPath,
+      details: details ?? this.details,
     );
   }
 }

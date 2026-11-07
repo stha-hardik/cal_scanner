@@ -1,3 +1,4 @@
+import '../../nepali_food/nepali_food_db.dart';
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +20,7 @@ class ChatContext {
   static String _d(DateTime d) =>
       '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 
-  static Future<String> build() async {
+  static Future<String> build({String recentUserText = ''}) async {
     final prefs = await SharedPreferences.getInstance();
     final ds = sl<FoodLocalDataSource>();
     final now = DateTime.now();
@@ -103,6 +104,34 @@ class ChatContext {
     }
     if (!any) b.writeln('- no earlier days logged');
     b.write(await MemoryStore.promptBlock());
+    b.write(await _nepaliFoodBlock(recentUserText));
     return b.toString();
+  }
+
+  /// Built-in Nepali food knowledge: the list of known names, plus exact
+  /// nutrition for the foods the user just mentioned (misspellings included).
+  static Future<String> _nepaliFoodBlock(String recentUserText) async {
+    try {
+      final db = await NepaliFoodDb.load();
+      final b = StringBuffer()
+        ..writeln()
+        ..writeln('NEPALI FOOD KNOWLEDGE:')
+        ..writeln('The user mostly eats Nepali food. Known foods: ${db.foods.map((f) => f.name).join('; ')}.')
+        ..writeln('Nepali words are spelled many ways (gualamari = gwaramari, sael roti = sel roti); understand them. '
+            'When a food below is mentioned, use these values (scale by portion) for log_meal and for advice instead of guessing.');
+      final hits = db.findInText(recentUserText);
+      for (final h in hits.take(8)) {
+        final f = h.food;
+        final q = h.quantity;
+        final grams = f.perPiece ? (q ?? 1) * f.servingGrams : f.servingGrams * (q ?? 1);
+        final n = f.forGrams(grams);
+        b.writeln('- ${f.name}: ${f.kcal100.round()} kcal, P${f.protein100} C${f.carbs100} F${f.fat100} per 100 g; '
+            '${f.servingLabel} = ${f.servingGrams.round()} g = ${(f.kcal100 * f.servingGrams / 100).round()} kcal. '
+            '${q == null ? '' : 'User said ${q == q.roundToDouble() ? q.round() : q}: ${grams.round()} g = ${n.kcal.round()} kcal, P${n.protein.toStringAsFixed(1)} C${n.carbs.toStringAsFixed(1)} F${n.fat.toStringAsFixed(1)}.'}');
+      }
+      return b.toString();
+    } catch (_) {
+      return '';
+    }
   }
 }

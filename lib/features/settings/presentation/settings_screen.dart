@@ -5,6 +5,7 @@ import '../../../core/settings/model_chooser.dart';
 import '../../../core/settings/theme_settings.dart';
 import '../../memory/presentation/memory_screen.dart';
 import 'activity_section.dart';
+import 'portion_section.dart';
 import 'goal_section.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -177,6 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(height: 16),
                 const ActivitySection(),
                 const GoalSection(),
+                const PortionSection(),
                 Text(
                   'AI',
                   style: Theme.of(context).textTheme.titleSmall,

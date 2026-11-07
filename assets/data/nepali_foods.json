@@ -1,0 +1,2361 @@
+{
+ "version": 1,
+ "note": "Approximate values for typical Nepali home/street recipes, per 100 g of the food as served. Edit freely.",
+ "foods": [
+  {
+   "id": "bhat",
+   "name": "Cooked rice (bhat)",
+   "nep": "भात",
+   "aliases": [
+    "bhaat",
+    "bhat",
+    "rice",
+    "white rice",
+    "plain rice",
+    "chamal ko bhat"
+   ],
+   "per100": {
+    "kcal": 130,
+    "p": 2.7,
+    "c": 28,
+    "f": 0.3
+   },
+   "serving": {
+    "g": 180,
+    "label": "1 serving (about 1 katori heaped)"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "dal",
+   "name": "Dal (lentil soup)",
+   "nep": "दाल",
+   "aliases": [
+    "daal",
+    "dal",
+    "lentil soup",
+    "jhol dal",
+    "musuro ko dal",
+    "kalo dal",
+    "maas ko dal"
+   ],
+   "per100": {
+    "kcal": 60,
+    "p": 4,
+    "c": 9,
+    "f": 1.2
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "tarkari",
+   "name": "Mixed vegetable curry (tarkari)",
+   "nep": "तरकारी",
+   "aliases": [
+    "tarkari",
+    "tarkaari",
+    "veg curry",
+    "sabji",
+    "sabzi",
+    "vegetable curry",
+    "aloo tarkari"
+   ],
+   "per100": {
+    "kcal": 75,
+    "p": 2,
+    "c": 8,
+    "f": 4
+   },
+   "serving": {
+    "g": 120,
+    "label": "1 katori"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "dal_bhat_set",
+   "name": "Dal bhat tarkari set (1 plate)",
+   "nep": "दाल भात तरकारी",
+   "aliases": [
+    "dal bhat",
+    "daal bhaat",
+    "dal bhat tarkari",
+    "khana",
+    "nepali thali",
+    "thali",
+    "bhat dal tarkari set"
+   ],
+   "per100": {
+    "kcal": 140,
+    "p": 4.5,
+    "c": 22,
+    "f": 3.5
+   },
+   "serving": {
+    "g": 500,
+    "label": "1 full plate (rice, dal, curry, saag, achar)"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "dhido",
+   "name": "Dhido",
+   "nep": "ढिँडो",
+   "aliases": [
+    "dhido",
+    "dhindo",
+    "dhiro",
+    "dido",
+    "kodo dhido",
+    "fapar dhido",
+    "buckwheat dhido",
+    "maize dhido"
+   ],
+   "per100": {
+    "kcal": 120,
+    "p": 3,
+    "c": 25,
+    "f": 0.8
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 plate"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "roti",
+   "name": "Roti / chapati",
+   "nep": "रोटी",
+   "aliases": [
+    "roti",
+    "chapati",
+    "chapatti",
+    "phulka",
+    "tawa roti",
+    "chapaati"
+   ],
+   "per100": {
+    "kcal": 290,
+    "p": 9,
+    "c": 50,
+    "f": 5
+   },
+   "serving": {
+    "g": 40,
+    "label": "1 roti (medium)"
+   },
+   "cat": "staple",
+   "piece": true
+  },
+  {
+   "id": "paratha",
+   "name": "Paratha",
+   "nep": "पराठा",
+   "aliases": [
+    "paratha",
+    "parantha",
+    "parautha",
+    "aloo paratha plain"
+   ],
+   "per100": {
+    "kcal": 330,
+    "p": 7,
+    "c": 42,
+    "f": 15
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 paratha"
+   },
+   "cat": "staple",
+   "piece": true
+  },
+  {
+   "id": "aloo_paratha",
+   "name": "Aloo paratha",
+   "nep": "आलु पराठा",
+   "aliases": [
+    "aloo paratha",
+    "alu paratha",
+    "potato paratha"
+   ],
+   "per100": {
+    "kcal": 260,
+    "p": 5,
+    "c": 38,
+    "f": 10
+   },
+   "serving": {
+    "g": 120,
+    "label": "1 paratha"
+   },
+   "cat": "staple",
+   "piece": true
+  },
+  {
+   "id": "puri",
+   "name": "Puri",
+   "nep": "पुरी",
+   "aliases": [
+    "puri",
+    "poori",
+    "puree"
+   ],
+   "per100": {
+    "kcal": 350,
+    "p": 7,
+    "c": 45,
+    "f": 16
+   },
+   "serving": {
+    "g": 35,
+    "label": "1 puri"
+   },
+   "cat": "staple",
+   "piece": true
+  },
+  {
+   "id": "sel_roti",
+   "name": "Sel roti",
+   "nep": "सेल रोटी",
+   "aliases": [
+    "sel roti",
+    "selroti",
+    "sel",
+    "sael roti",
+    "sell roti",
+    "seal roti",
+    "sel rotti",
+    "seyl roti",
+    "sel bread"
+   ],
+   "per100": {
+    "kcal": 290,
+    "p": 3.5,
+    "c": 50,
+    "f": 8
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 piece (ring about 10-12 cm)"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "gwaramari",
+   "name": "Gwaramari",
+   "nep": "ग्वारामरी",
+   "aliases": [
+    "gwaramari",
+    "gwara mari",
+    "gwarmari",
+    "gualamari",
+    "guaramari",
+    "gwaramary",
+    "gaurmari",
+    "guwaramari",
+    "gwaramri",
+    "gwalamari",
+    "gwarmari",
+    "gawaramari",
+    "gwaramari bread"
+   ],
+   "per100": {
+    "kcal": 330,
+    "p": 7,
+    "c": 45,
+    "f": 14
+   },
+   "serving": {
+    "g": 25,
+    "label": "1 ball (about 25 g)"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "chatamari",
+   "name": "Chatamari",
+   "nep": "चतामरी",
+   "aliases": [
+    "chatamari",
+    "chata mari",
+    "chatamary",
+    "chatamri",
+    "newari pizza",
+    "rice crepe",
+    "chatamari with egg",
+    "chatamari with meat"
+   ],
+   "per100": {
+    "kcal": 200,
+    "p": 6,
+    "c": 30,
+    "f": 6
+   },
+   "serving": {
+    "g": 110,
+    "label": "1 piece (medium)"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "yomari",
+   "name": "Yomari",
+   "nep": "योमरी",
+   "aliases": [
+    "yomari",
+    "yamari",
+    "yomary",
+    "yo mari",
+    "yomari chaku",
+    "yomari khuwa"
+   ],
+   "per100": {
+    "kcal": 220,
+    "p": 3,
+    "c": 48,
+    "f": 2.5
+   },
+   "serving": {
+    "g": 70,
+    "label": "1 yomari"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "bara",
+   "name": "Wo / Bara (lentil patty)",
+   "nep": "बारा",
+   "aliases": [
+    "wo",
+    "bara",
+    "baara",
+    "woh",
+    "newari bara",
+    "lentil patty",
+    "bara with egg",
+    "wo with egg"
+   ],
+   "per100": {
+    "kcal": 220,
+    "p": 10,
+    "c": 24,
+    "f": 9
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 patty"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "aalu_tareko",
+   "name": "Aloo tareko (fried spicy potato)",
+   "nep": "आलु तारेको",
+   "aliases": [
+    "aloo tareko",
+    "alu tareko",
+    "aalu tareko",
+    "fried potato",
+    "aloo fry",
+    "alu fry",
+    "aaloo tareko"
+   ],
+   "per100": {
+    "kcal": 150,
+    "p": 2.2,
+    "c": 22,
+    "f": 6
+   },
+   "serving": {
+    "g": 100,
+    "label": "1 katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "aalu_achar",
+   "name": "Aloo achar (potato pickle)",
+   "nep": "आलुको अचार",
+   "aliases": [
+    "aloo achar",
+    "alu ko achar",
+    "potato achar",
+    "aalu achar",
+    "aloo ko achar"
+   ],
+   "per100": {
+    "kcal": 100,
+    "p": 2,
+    "c": 17,
+    "f": 3
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 small katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "gundruk",
+   "name": "Gundruk (fermented greens, as achar)",
+   "nep": "गुन्द्रुक",
+   "aliases": [
+    "gundruk",
+    "gundruk achar",
+    "gundruk sadeko",
+    "gundruk ko achar",
+    "gundruk sandheko"
+   ],
+   "per100": {
+    "kcal": 70,
+    "p": 3.5,
+    "c": 8,
+    "f": 3
+   },
+   "serving": {
+    "g": 50,
+    "label": "1 small katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "gundruk_soup",
+   "name": "Gundruk soup (jhol)",
+   "nep": "गुन्द्रुकको झोल",
+   "aliases": [
+    "gundruk soup",
+    "gundruk ko jhol",
+    "gundruk jhol",
+    "gundruk ko soup"
+   ],
+   "per100": {
+    "kcal": 30,
+    "p": 2,
+    "c": 4,
+    "f": 1
+   },
+   "serving": {
+    "g": 200,
+    "label": "1 bowl"
+   },
+   "cat": "soup",
+   "piece": false
+  },
+  {
+   "id": "saag",
+   "name": "Saag (cooked greens)",
+   "nep": "साग",
+   "aliases": [
+    "saag",
+    "sag",
+    "saagh",
+    "palungo ko saag",
+    "rayo ko saag",
+    "mustard greens",
+    "spinach saag",
+    "lahare saag"
+   ],
+   "per100": {
+    "kcal": 55,
+    "p": 3,
+    "c": 4,
+    "f": 3.2
+   },
+   "serving": {
+    "g": 100,
+    "label": "1 small katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "kwati",
+   "name": "Kwati (sprouted bean soup)",
+   "nep": "क्वाँटी",
+   "aliases": [
+    "kwati",
+    "kwaati",
+    "kwanti",
+    "kwati soup",
+    "gwanti",
+    "quati",
+    "mixed bean soup"
+   ],
+   "per100": {
+    "kcal": 90,
+    "p": 6,
+    "c": 13,
+    "f": 1.5
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 bowl"
+   },
+   "cat": "soup",
+   "piece": false
+  },
+  {
+   "id": "bhatmas_sadeko",
+   "name": "Bhatmas sadeko (roasted soybean salad)",
+   "nep": "भटमास सदेको",
+   "aliases": [
+    "bhatmas sadeko",
+    "bhatmaas",
+    "bhatmas",
+    "roasted soybean",
+    "soyabean sadeko",
+    "bhatmas sandheko"
+   ],
+   "per100": {
+    "kcal": 170,
+    "p": 13,
+    "c": 12,
+    "f": 8
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 small plate"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "chiura",
+   "name": "Chiura (beaten rice, dry)",
+   "nep": "चिउरा",
+   "aliases": [
+    "chiura",
+    "chyura",
+    "chiuraa",
+    "cheura",
+    "beaten rice",
+    "chura",
+    "chiura plate"
+   ],
+   "per100": {
+    "kcal": 350,
+    "p": 6.5,
+    "c": 78,
+    "f": 1.2
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 plate (dry weight)"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "khichdi",
+   "name": "Khichdi",
+   "nep": "खिचडी",
+   "aliases": [
+    "khichdi",
+    "khichadi",
+    "kichadi",
+    "khichri",
+    "khichuri"
+   ],
+   "per100": {
+    "kcal": 120,
+    "p": 4,
+    "c": 20,
+    "f": 2.5
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 plate"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "jaulo",
+   "name": "Jaulo (rice porridge)",
+   "nep": "जाउलो",
+   "aliases": [
+    "jaulo",
+    "jaulo porridge",
+    "jau lo",
+    "rice porridge",
+    "lito"
+   ],
+   "per100": {
+    "kcal": 70,
+    "p": 2,
+    "c": 13,
+    "f": 1
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 bowl"
+   },
+   "cat": "staple",
+   "piece": false
+  },
+  {
+   "id": "samosa",
+   "name": "Samosa",
+   "nep": "समोसा",
+   "aliases": [
+    "samosa",
+    "somosa",
+    "samosaa",
+    "singara",
+    "aloo samosa"
+   ],
+   "per100": {
+    "kcal": 262,
+    "p": 5,
+    "c": 26,
+    "f": 15
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 samosa"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "pakoda",
+   "name": "Pakoda (fried fritters)",
+   "nep": "पकौडा",
+   "aliases": [
+    "pakoda",
+    "pakora",
+    "pakauda",
+    "pyaj ko pakoda",
+    "onion pakoda",
+    "aloo pakoda",
+    "pakaura"
+   ],
+   "per100": {
+    "kcal": 300,
+    "p": 7,
+    "c": 30,
+    "f": 17
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 small plate (4 pcs)"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "chatpate",
+   "name": "Chatpate",
+   "nep": "चटपटे",
+   "aliases": [
+    "chatpate",
+    "chatpatey",
+    "chatpati",
+    "chat pate"
+   ],
+   "per100": {
+    "kcal": 300,
+    "p": 6,
+    "c": 40,
+    "f": 13
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 plate"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "panipuri",
+   "name": "Pani puri / golgappa",
+   "nep": "पानीपुरी",
+   "aliases": [
+    "pani puri",
+    "panipuri",
+    "golgappa",
+    "gol gappa",
+    "puchka",
+    "phuchka"
+   ],
+   "per100": {
+    "kcal": 200,
+    "p": 4,
+    "c": 30,
+    "f": 7
+   },
+   "serving": {
+    "g": 100,
+    "label": "6 pieces"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "waiwai_dry",
+   "name": "Wai Wai noodles (1 packet, dry/sadeko)",
+   "nep": "वाईवाई",
+   "aliases": [
+    "wai wai",
+    "waiwai",
+    "wai wai sadeko",
+    "waiwai sadeko",
+    "wai wai chatpate",
+    "rara noodles",
+    "instant noodles packet",
+    "wai wai noodles",
+    "wai wai dry"
+   ],
+   "per100": {
+    "kcal": 450,
+    "p": 9,
+    "c": 60,
+    "f": 19
+   },
+   "serving": {
+    "g": 75,
+    "label": "1 packet (75 g)"
+   },
+   "cat": "snack",
+   "piece": true
+  },
+  {
+   "id": "waiwai_soup",
+   "name": "Instant noodles (cooked in soup)",
+   "nep": "",
+   "aliases": [
+    "wai wai soup",
+    "waiwai soup",
+    "maggi",
+    "maggie",
+    "instant noodles soup",
+    "ramen noodles"
+   ],
+   "per100": {
+    "kcal": 130,
+    "p": 3,
+    "c": 18,
+    "f": 5
+   },
+   "serving": {
+    "g": 300,
+    "label": "1 bowl"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "momo_chicken",
+   "name": "Momo, chicken (steamed)",
+   "nep": "मोमो",
+   "aliases": [
+    "momo",
+    "chicken momo",
+    "kukhura momo",
+    "steam momo",
+    "steamed momo",
+    "mo mo",
+    "momos",
+    "momo chicken",
+    "c momo steamed"
+   ],
+   "per100": {
+    "kcal": 200,
+    "p": 10,
+    "c": 24,
+    "f": 7
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 piece (30 g); plate of 10 = 300 g"
+   },
+   "cat": "momo",
+   "piece": true
+  },
+  {
+   "id": "momo_buff",
+   "name": "Momo, buff (steamed)",
+   "nep": "बफ मोमो",
+   "aliases": [
+    "buff momo",
+    "buff momos",
+    "mah momo",
+    "masu momo",
+    "buffalo momo",
+    "buff mo mo"
+   ],
+   "per100": {
+    "kcal": 190,
+    "p": 11,
+    "c": 23,
+    "f": 6
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 piece; plate of 10 = 300 g"
+   },
+   "cat": "momo",
+   "piece": true
+  },
+  {
+   "id": "momo_veg",
+   "name": "Momo, vegetable (steamed)",
+   "nep": "भेज मोमो",
+   "aliases": [
+    "veg momo",
+    "vegetable momo",
+    "tarkari momo",
+    "cheese momo",
+    "paneer momo",
+    "veg mo mo"
+   ],
+   "per100": {
+    "kcal": 160,
+    "p": 5,
+    "c": 25,
+    "f": 4.5
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 piece; plate of 10 = 300 g"
+   },
+   "cat": "momo",
+   "piece": true
+  },
+  {
+   "id": "momo_fried",
+   "name": "Momo, fried",
+   "nep": "फ्राइड मोमो",
+   "aliases": [
+    "fried momo",
+    "kothey momo",
+    "kothe momo",
+    "fry momo",
+    "fried momos",
+    "kothey"
+   ],
+   "per100": {
+    "kcal": 290,
+    "p": 10,
+    "c": 28,
+    "f": 15
+   },
+   "serving": {
+    "g": 32,
+    "label": "1 piece"
+   },
+   "cat": "momo",
+   "piece": true
+  },
+  {
+   "id": "momo_jhol",
+   "name": "Momo with jhol (soup/sauce)",
+   "nep": "झोल मोमो",
+   "aliases": [
+    "jhol momo",
+    "jhol momos",
+    "momo jhol",
+    "soup momo",
+    "c momo",
+    "chilli momo",
+    "chilly momo",
+    "kurkure momo"
+   ],
+   "per100": {
+    "kcal": 210,
+    "p": 9,
+    "c": 22,
+    "f": 9
+   },
+   "serving": {
+    "g": 45,
+    "label": "1 piece with sauce; plate of 10 = 450 g"
+   },
+   "cat": "momo",
+   "piece": true
+  },
+  {
+   "id": "thukpa",
+   "name": "Thukpa (noodle soup)",
+   "nep": "थुक्पा",
+   "aliases": [
+    "thukpa",
+    "thupka",
+    "thukpaa",
+    "thuktuk",
+    "noodle soup",
+    "thenthuk"
+   ],
+   "per100": {
+    "kcal": 90,
+    "p": 5,
+    "c": 13,
+    "f": 2
+   },
+   "serving": {
+    "g": 400,
+    "label": "1 bowl"
+   },
+   "cat": "soup",
+   "piece": false
+  },
+  {
+   "id": "chowmein",
+   "name": "Chowmein",
+   "nep": "चाउमिन",
+   "aliases": [
+    "chowmein",
+    "chow mein",
+    "chaumin",
+    "chowmin",
+    "chawmin",
+    "veg chowmein",
+    "chicken chowmein",
+    "buff chowmein",
+    "chau chau"
+   ],
+   "per100": {
+    "kcal": 180,
+    "p": 5,
+    "c": 28,
+    "f": 5.5
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 plate"
+   },
+   "cat": "street",
+   "piece": false
+  },
+  {
+   "id": "fried_rice",
+   "name": "Fried rice",
+   "nep": "फ्राइड राइस",
+   "aliases": [
+    "fried rice",
+    "friedrice",
+    "egg fried rice",
+    "chicken fried rice",
+    "veg fried rice",
+    "fry rice"
+   ],
+   "per100": {
+    "kcal": 190,
+    "p": 5,
+    "c": 30,
+    "f": 5.5
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 plate"
+   },
+   "cat": "street",
+   "piece": false
+  },
+  {
+   "id": "pizza",
+   "name": "Pizza slice",
+   "nep": "पिज्जा",
+   "aliases": [
+    "pizza",
+    "pizza slice",
+    "cheese pizza",
+    "pepperoni pizza",
+    "chicken pizza"
+   ],
+   "per100": {
+    "kcal": 266,
+    "p": 11,
+    "c": 33,
+    "f": 10
+   },
+   "serving": {
+    "g": 110,
+    "label": "1 slice (medium pizza)"
+   },
+   "cat": "fastfood",
+   "piece": true
+  },
+  {
+   "id": "burger",
+   "name": "Burger",
+   "nep": "बर्गर",
+   "aliases": [
+    "burger",
+    "chicken burger",
+    "buff burger",
+    "cheese burger",
+    "veg burger",
+    "hamburger"
+   ],
+   "per100": {
+    "kcal": 250,
+    "p": 12,
+    "c": 28,
+    "f": 10
+   },
+   "serving": {
+    "g": 200,
+    "label": "1 burger"
+   },
+   "cat": "fastfood",
+   "piece": true
+  },
+  {
+   "id": "fries",
+   "name": "French fries",
+   "nep": "फ्राइज",
+   "aliases": [
+    "french fries",
+    "fries",
+    "finger chips",
+    "chips fries",
+    "potato fries",
+    "chips"
+   ],
+   "per100": {
+    "kcal": 312,
+    "p": 3.4,
+    "c": 41,
+    "f": 15
+   },
+   "serving": {
+    "g": 100,
+    "label": "1 medium serving"
+   },
+   "cat": "fastfood",
+   "piece": false
+  },
+  {
+   "id": "dosa",
+   "name": "Dosa (masala)",
+   "nep": "दोसा",
+   "aliases": [
+    "dosa",
+    "masala dosa",
+    "dosai",
+    "plain dosa",
+    "dosa masala"
+   ],
+   "per100": {
+    "kcal": 165,
+    "p": 4,
+    "c": 26,
+    "f": 5
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 dosa"
+   },
+   "cat": "street",
+   "piece": true
+  },
+  {
+   "id": "idli",
+   "name": "Idli",
+   "nep": "इडली",
+   "aliases": [
+    "idli",
+    "iddli",
+    "idly",
+    "idli sambar"
+   ],
+   "per100": {
+    "kcal": 130,
+    "p": 4,
+    "c": 26,
+    "f": 0.8
+   },
+   "serving": {
+    "g": 50,
+    "label": "1 idli"
+   },
+   "cat": "street",
+   "piece": true
+  },
+  {
+   "id": "sekuwa",
+   "name": "Sekuwa (grilled meat)",
+   "nep": "सेकुवा",
+   "aliases": [
+    "sekuwa",
+    "sekua",
+    "sekuwaa",
+    "chicken sekuwa",
+    "buff sekuwa",
+    "pork sekuwa",
+    "mutton sekuwa",
+    "grilled meat",
+    "bbq sekuwa",
+    "sekuwa meat"
+   ],
+   "per100": {
+    "kcal": 190,
+    "p": 22,
+    "c": 1,
+    "f": 11
+   },
+   "serving": {
+    "g": 100,
+    "label": "1 small plate"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "choila",
+   "name": "Choila (spiced buff)",
+   "nep": "चोइला",
+   "aliases": [
+    "choila",
+    "choyela",
+    "chwela",
+    "choela",
+    "buff choila",
+    "chicken choila",
+    "choyla",
+    "choila newari"
+   ],
+   "per100": {
+    "kcal": 210,
+    "p": 24,
+    "c": 2,
+    "f": 12
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 plate"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "bhutan",
+   "name": "Bhutan (fried offal)",
+   "nep": "भुटन",
+   "aliases": [
+    "bhutan",
+    "bhutaan",
+    "bhutuwa",
+    "bhuton",
+    "bhutan fry",
+    "bhuttan"
+   ],
+   "per100": {
+    "kcal": 220,
+    "p": 18,
+    "c": 2,
+    "f": 16
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 plate"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "sukuti",
+   "name": "Sukuti (dried meat)",
+   "nep": "सुकुटी",
+   "aliases": [
+    "sukuti",
+    "sukuti sadeko",
+    "sukuti fry",
+    "sukutii",
+    "dry meat",
+    "sukuti ko"
+   ],
+   "per100": {
+    "kcal": 300,
+    "p": 45,
+    "c": 3,
+    "f": 12
+   },
+   "serving": {
+    "g": 50,
+    "label": "1 small plate"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "chicken_curry",
+   "name": "Chicken curry",
+   "nep": "कुखुराको मासु",
+   "aliases": [
+    "chicken curry",
+    "kukhura ko masu",
+    "kukhura masu",
+    "chicken masala",
+    "masu",
+    "chicken tarkari",
+    "kukhura ko jhol",
+    "chicken jhol"
+   ],
+   "per100": {
+    "kcal": 165,
+    "p": 15,
+    "c": 4,
+    "f": 10
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori with 2-3 pieces"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "buff_curry",
+   "name": "Buff curry",
+   "nep": "भैंसीको मासु",
+   "aliases": [
+    "buff curry",
+    "buff masu",
+    "bhaisi ko masu",
+    "buffalo curry",
+    "buff tarkari",
+    "buff jhol",
+    "buff masala"
+   ],
+   "per100": {
+    "kcal": 150,
+    "p": 17,
+    "c": 3,
+    "f": 8
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "mutton_curry",
+   "name": "Mutton / khasi curry",
+   "nep": "खसीको मासु",
+   "aliases": [
+    "mutton curry",
+    "khasi ko masu",
+    "khasi masu",
+    "goat curry",
+    "mutton masala",
+    "khasi",
+    "goat meat",
+    "mutton"
+   ],
+   "per100": {
+    "kcal": 200,
+    "p": 17,
+    "c": 3,
+    "f": 13
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "pork_curry",
+   "name": "Pork curry",
+   "nep": "बङ्गुरको मासु",
+   "aliases": [
+    "pork curry",
+    "bangur ko masu",
+    "bangur masu",
+    "pork masu",
+    "pork tarkari",
+    "pork fry",
+    "pork"
+   ],
+   "per100": {
+    "kcal": 240,
+    "p": 16,
+    "c": 3,
+    "f": 18
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "fish_curry",
+   "name": "Fish curry",
+   "nep": "माछा",
+   "aliases": [
+    "fish curry",
+    "machha",
+    "macha",
+    "fish fry",
+    "machha tarkari",
+    "machha ko jhol",
+    "fish tarkari"
+   ],
+   "per100": {
+    "kcal": 130,
+    "p": 17,
+    "c": 3,
+    "f": 6
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "meat",
+   "piece": false
+  },
+  {
+   "id": "egg_boiled",
+   "name": "Egg, boiled",
+   "nep": "उसिनेको अण्डा",
+   "aliases": [
+    "boiled egg",
+    "egg boiled",
+    "ando",
+    "anda",
+    "unseko ando",
+    "egg",
+    "boil egg",
+    "usineko ando"
+   ],
+   "per100": {
+    "kcal": 155,
+    "p": 13,
+    "c": 1.1,
+    "f": 11
+   },
+   "serving": {
+    "g": 50,
+    "label": "1 egg"
+   },
+   "cat": "egg",
+   "piece": true
+  },
+  {
+   "id": "egg_fried",
+   "name": "Egg, fried (omelette / fry)",
+   "nep": "अण्डा फ्राई",
+   "aliases": [
+    "fried egg",
+    "omelette",
+    "omelet",
+    "egg fry",
+    "ando fry",
+    "egg omelette",
+    "ando tareko",
+    "egg bhurji",
+    "ando bhurji"
+   ],
+   "per100": {
+    "kcal": 200,
+    "p": 12,
+    "c": 1.5,
+    "f": 16
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 egg"
+   },
+   "cat": "egg",
+   "piece": true
+  },
+  {
+   "id": "paneer",
+   "name": "Paneer",
+   "nep": "पनिर",
+   "aliases": [
+    "paneer",
+    "paneer curry",
+    "chhena",
+    "cottage cheese",
+    "paneer masala",
+    "panir"
+   ],
+   "per100": {
+    "kcal": 270,
+    "p": 18,
+    "c": 4,
+    "f": 20
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 serving (about 80 g)"
+   },
+   "cat": "dairy",
+   "piece": false
+  },
+  {
+   "id": "dahi",
+   "name": "Dahi (curd)",
+   "nep": "दही",
+   "aliases": [
+    "dahi",
+    "curd",
+    "yogurt",
+    "dahi plain",
+    "plain curd",
+    "dhai"
+   ],
+   "per100": {
+    "kcal": 60,
+    "p": 3.5,
+    "c": 5,
+    "f": 3
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "dairy",
+   "piece": false
+  },
+  {
+   "id": "juju_dhau",
+   "name": "Juju dhau (king curd)",
+   "nep": "जुजु धौ",
+   "aliases": [
+    "juju dhau",
+    "juju dhaau",
+    "juju dahi",
+    "king curd",
+    "bhaktapur dhau",
+    "sweet curd",
+    "dhau",
+    "mitho dahi"
+   ],
+   "per100": {
+    "kcal": 120,
+    "p": 4,
+    "c": 16,
+    "f": 4.5
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 small clay pot"
+   },
+   "cat": "dairy",
+   "piece": false
+  },
+  {
+   "id": "lassi",
+   "name": "Lassi",
+   "nep": "लस्सी",
+   "aliases": [
+    "lassi",
+    "sweet lassi",
+    "mango lassi",
+    "lassy",
+    "lasi"
+   ],
+   "per100": {
+    "kcal": 90,
+    "p": 3,
+    "c": 14,
+    "f": 2.5
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 glass"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "milk",
+   "name": "Milk",
+   "nep": "दूध",
+   "aliases": [
+    "milk",
+    "dudh",
+    "doodh",
+    "gai ko dudh",
+    "cow milk",
+    "buffalo milk",
+    "bhaisi ko dudh",
+    "full cream milk"
+   ],
+   "per100": {
+    "kcal": 65,
+    "p": 3.3,
+    "c": 4.8,
+    "f": 3.6
+   },
+   "serving": {
+    "g": 200,
+    "label": "1 glass"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "chiya",
+   "name": "Milk tea (chiya, with sugar)",
+   "nep": "चिया",
+   "aliases": [
+    "chiya",
+    "chai",
+    "milk tea",
+    "masala chiya",
+    "masala chai",
+    "tea",
+    "dudh chiya",
+    "cha",
+    "chia"
+   ],
+   "per100": {
+    "kcal": 55,
+    "p": 1.5,
+    "c": 8,
+    "f": 2
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 cup (small)"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "black_tea",
+   "name": "Black tea / lemon tea (with sugar)",
+   "nep": "कालो चिया",
+   "aliases": [
+    "black tea",
+    "kalo chiya",
+    "lemon tea",
+    "green tea sweet",
+    "sugar tea",
+    "chini chiya"
+   ],
+   "per100": {
+    "kcal": 25,
+    "p": 0,
+    "c": 6,
+    "f": 0
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 cup"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "coffee",
+   "name": "Coffee with milk and sugar",
+   "nep": "कफी",
+   "aliases": [
+    "coffee",
+    "coffee milk",
+    "milk coffee",
+    "kofi",
+    "nescafe",
+    "cappuccino",
+    "latte"
+   ],
+   "per100": {
+    "kcal": 55,
+    "p": 1.8,
+    "c": 7,
+    "f": 2
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 cup"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "raksi",
+   "name": "Raksi / local spirit",
+   "nep": "रक्सी",
+   "aliases": [
+    "raksi",
+    "rakshi",
+    "aila",
+    "local raksi",
+    "whiskey",
+    "rum",
+    "vodka"
+   ],
+   "per100": {
+    "kcal": 230,
+    "p": 0,
+    "c": 0,
+    "f": 0
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 small peg (30 ml)"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "beer",
+   "name": "Beer",
+   "nep": "बियर",
+   "aliases": [
+    "beer",
+    "bear",
+    "gorkha beer",
+    "tuborg",
+    "carlsberg",
+    "nepal ice",
+    "everest beer"
+   ],
+   "per100": {
+    "kcal": 43,
+    "p": 0.4,
+    "c": 3.6,
+    "f": 0
+   },
+   "serving": {
+    "g": 330,
+    "label": "1 bottle (330 ml)"
+   },
+   "cat": "drink",
+   "piece": true
+  },
+  {
+   "id": "cola",
+   "name": "Soft drink / cola",
+   "nep": "कोक",
+   "aliases": [
+    "coke",
+    "cola",
+    "pepsi",
+    "fanta",
+    "sprite",
+    "soft drink",
+    "cold drink",
+    "soda",
+    "fizz"
+   ],
+   "per100": {
+    "kcal": 42,
+    "p": 0,
+    "c": 10.6,
+    "f": 0
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 glass / small bottle"
+   },
+   "cat": "drink",
+   "piece": false
+  },
+  {
+   "id": "jalebi",
+   "name": "Jalebi",
+   "nep": "जलेबी",
+   "aliases": [
+    "jalebi",
+    "jilebi",
+    "jalebee",
+    "jeri",
+    "jalebi sweet"
+   ],
+   "per100": {
+    "kcal": 380,
+    "p": 3,
+    "c": 70,
+    "f": 10
+   },
+   "serving": {
+    "g": 50,
+    "label": "1 piece / small serving"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "lalmohan",
+   "name": "Lalmohan / gulab jamun",
+   "nep": "लालमोहन",
+   "aliases": [
+    "lalmohan",
+    "lalmohan sweet",
+    "gulab jamun",
+    "gulabjamun",
+    "lal mohan",
+    "lal mohun",
+    "rasgulla fried"
+   ],
+   "per100": {
+    "kcal": 300,
+    "p": 5,
+    "c": 45,
+    "f": 12
+   },
+   "serving": {
+    "g": 40,
+    "label": "1 piece"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "rasbari",
+   "name": "Rasbari / rasgulla",
+   "nep": "रसबरी",
+   "aliases": [
+    "rasbari",
+    "rasbary",
+    "rasgulla",
+    "rasgula",
+    "ras bari",
+    "rosogolla"
+   ],
+   "per100": {
+    "kcal": 190,
+    "p": 5,
+    "c": 32,
+    "f": 4
+   },
+   "serving": {
+    "g": 60,
+    "label": "1 piece"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "laddu",
+   "name": "Laddu",
+   "nep": "लड्डु",
+   "aliases": [
+    "laddu",
+    "ladu",
+    "laddoo",
+    "motichoor",
+    "besan laddu",
+    "til ko laddu",
+    "laaddu"
+   ],
+   "per100": {
+    "kcal": 400,
+    "p": 7,
+    "c": 55,
+    "f": 17
+   },
+   "serving": {
+    "g": 40,
+    "label": "1 laddu"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "barfi",
+   "name": "Barfi / peda",
+   "nep": "बर्फी",
+   "aliases": [
+    "barfi",
+    "burfi",
+    "peda",
+    "khuwa barfi",
+    "coconut barfi",
+    "khoa"
+   ],
+   "per100": {
+    "kcal": 410,
+    "p": 8,
+    "c": 58,
+    "f": 16
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 piece"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "lakhamari",
+   "name": "Lakhamari",
+   "nep": "लाखामरी",
+   "aliases": [
+    "lakhamari",
+    "lakhamary",
+    "lakhamri",
+    "lakha mari",
+    "lakhamari sweet"
+   ],
+   "per100": {
+    "kcal": 430,
+    "p": 5,
+    "c": 65,
+    "f": 17
+   },
+   "serving": {
+    "g": 70,
+    "label": "1 piece (about 70 g)"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "khir",
+   "name": "Kheer (rice pudding)",
+   "nep": "खीर",
+   "aliases": [
+    "kheer",
+    "khir",
+    "kheer rice pudding",
+    "rice pudding",
+    "chaaule ko khir",
+    "khiir",
+    "sikarni"
+   ],
+   "per100": {
+    "kcal": 130,
+    "p": 3.5,
+    "c": 20,
+    "f": 4
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "sweet",
+   "piece": false
+  },
+  {
+   "id": "halwa",
+   "name": "Halwa (sooji / suji)",
+   "nep": "हलुवा",
+   "aliases": [
+    "halwa",
+    "haluwa",
+    "halua",
+    "suji halwa",
+    "sooji halwa",
+    "gajar halwa",
+    "carrot halwa",
+    "sooji ko halwa"
+   ],
+   "per100": {
+    "kcal": 300,
+    "p": 3,
+    "c": 45,
+    "f": 12
+   },
+   "serving": {
+    "g": 100,
+    "label": "1 small katori"
+   },
+   "cat": "sweet",
+   "piece": false
+  },
+  {
+   "id": "titaura",
+   "name": "Titaura / lapsi candy",
+   "nep": "टिटौरा",
+   "aliases": [
+    "titaura",
+    "titora",
+    "tittaura",
+    "lapsi",
+    "lapsi candy",
+    "mango titaura",
+    "lapsi ko titaura",
+    "titauraa"
+   ],
+   "per100": {
+    "kcal": 330,
+    "p": 1,
+    "c": 80,
+    "f": 1
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 small piece"
+   },
+   "cat": "sweet",
+   "piece": true
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate bar",
+   "nep": "चकलेट",
+   "aliases": [
+    "chocolate",
+    "choclate",
+    "dairy milk",
+    "cadbury",
+    "chocolate bar",
+    "snickers",
+    "kitkat",
+    "kit kat"
+   ],
+   "per100": {
+    "kcal": 530,
+    "p": 7,
+    "c": 60,
+    "f": 30
+   },
+   "serving": {
+    "g": 40,
+    "label": "1 small bar"
+   },
+   "cat": "sweet",
+   "piece": false
+  },
+  {
+   "id": "biscuit",
+   "name": "Biscuit / cookies",
+   "nep": "बिस्कुट",
+   "aliases": [
+    "biscuit",
+    "biscuits",
+    "biskut",
+    "cookies",
+    "parle g",
+    "good day",
+    "marie biscuit",
+    "cream biscuit"
+   ],
+   "per100": {
+    "kcal": 450,
+    "p": 6,
+    "c": 70,
+    "f": 16
+   },
+   "serving": {
+    "g": 30,
+    "label": "4 biscuits"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "nep": "केरा",
+   "aliases": [
+    "banana",
+    "kera",
+    "kerra",
+    "bananas",
+    "kera pakeko"
+   ],
+   "per100": {
+    "kcal": 89,
+    "p": 1.1,
+    "c": 23,
+    "f": 0.3
+   },
+   "serving": {
+    "g": 120,
+    "label": "1 medium banana (peeled 100-120 g)"
+   },
+   "cat": "fruit",
+   "piece": true
+  },
+  {
+   "id": "apple",
+   "name": "Apple",
+   "nep": "स्याउ",
+   "aliases": [
+    "apple",
+    "syau",
+    "seu",
+    "apples"
+   ],
+   "per100": {
+    "kcal": 52,
+    "p": 0.3,
+    "c": 14,
+    "f": 0.2
+   },
+   "serving": {
+    "g": 180,
+    "label": "1 medium apple"
+   },
+   "cat": "fruit",
+   "piece": true
+  },
+  {
+   "id": "mango",
+   "name": "Mango",
+   "nep": "आँप",
+   "aliases": [
+    "mango",
+    "aap",
+    "aamp",
+    "aanp",
+    "mangos",
+    "pakeko aap"
+   ],
+   "per100": {
+    "kcal": 60,
+    "p": 0.8,
+    "c": 15,
+    "f": 0.4
+   },
+   "serving": {
+    "g": 200,
+    "label": "1 mango, flesh"
+   },
+   "cat": "fruit",
+   "piece": true
+  },
+  {
+   "id": "orange",
+   "name": "Orange / suntala",
+   "nep": "सुन्तला",
+   "aliases": [
+    "orange",
+    "suntala",
+    "juntar",
+    "junar",
+    "mandarin",
+    "malta",
+    "orange fruit"
+   ],
+   "per100": {
+    "kcal": 47,
+    "p": 0.9,
+    "c": 12,
+    "f": 0.1
+   },
+   "serving": {
+    "g": 130,
+    "label": "1 orange"
+   },
+   "cat": "fruit",
+   "piece": true
+  },
+  {
+   "id": "papaya",
+   "name": "Papaya",
+   "nep": "मेवा",
+   "aliases": [
+    "papaya",
+    "mewa",
+    "paapaya"
+   ],
+   "per100": {
+    "kcal": 43,
+    "p": 0.5,
+    "c": 11,
+    "f": 0.3
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 small bowl"
+   },
+   "cat": "fruit",
+   "piece": false
+  },
+  {
+   "id": "watermelon",
+   "name": "Watermelon",
+   "nep": "तरबुजा",
+   "aliases": [
+    "watermelon",
+    "tarbuja",
+    "tarbooja",
+    "kharbuja",
+    "melon"
+   ],
+   "per100": {
+    "kcal": 30,
+    "p": 0.6,
+    "c": 8,
+    "f": 0.2
+   },
+   "serving": {
+    "g": 250,
+    "label": "1 slice"
+   },
+   "cat": "fruit",
+   "piece": false
+  },
+  {
+   "id": "nuts",
+   "name": "Peanuts / roasted nuts",
+   "nep": "बदाम",
+   "aliases": [
+    "peanut",
+    "peanuts",
+    "badam",
+    "badaam",
+    "roasted peanuts",
+    "mungfali",
+    "nuts",
+    "almonds",
+    "cashew"
+   ],
+   "per100": {
+    "kcal": 580,
+    "p": 25,
+    "c": 16,
+    "f": 49
+   },
+   "serving": {
+    "g": 30,
+    "label": "1 handful (30 g)"
+   },
+   "cat": "snack",
+   "piece": false
+  },
+  {
+   "id": "ghee",
+   "name": "Ghee (extra)",
+   "nep": "घिउ",
+   "aliases": [
+    "ghee",
+    "ghiu",
+    "gheu",
+    "extra ghee",
+    "butter ghee"
+   ],
+   "per100": {
+    "kcal": 900,
+    "p": 0,
+    "c": 0,
+    "f": 100
+   },
+   "serving": {
+    "g": 5,
+    "label": "1 teaspoon (5 g)"
+   },
+   "cat": "fat",
+   "piece": false
+  },
+  {
+   "id": "oil",
+   "name": "Cooking oil / mustard oil (extra)",
+   "nep": "तेल",
+   "aliases": [
+    "oil",
+    "tel",
+    "mustard oil",
+    "cooking oil",
+    "extra oil",
+    "sarsiu ko tel",
+    "sunflower oil"
+   ],
+   "per100": {
+    "kcal": 900,
+    "p": 0,
+    "c": 0,
+    "f": 100
+   },
+   "serving": {
+    "g": 14,
+    "label": "1 tablespoon (14 g)"
+   },
+   "cat": "fat",
+   "piece": false
+  },
+  {
+   "id": "sugar",
+   "name": "Sugar / chini (extra)",
+   "nep": "चिनी",
+   "aliases": [
+    "sugar",
+    "chini",
+    "chinee",
+    "cheeni",
+    "extra sugar",
+    "sakkhar"
+   ],
+   "per100": {
+    "kcal": 400,
+    "p": 0,
+    "c": 100,
+    "f": 0
+   },
+   "serving": {
+    "g": 4,
+    "label": "1 teaspoon (4 g)"
+   },
+   "cat": "sugar",
+   "piece": false
+  },
+  {
+   "id": "aalu_boiled",
+   "name": "Boiled potato",
+   "nep": "उसिनेको आलु",
+   "aliases": [
+    "boiled potato",
+    "aloo boil",
+    "alu usineko",
+    "aalu boil",
+    "potato boiled",
+    "aloo sinaeko",
+    "usineko aalu"
+   ],
+   "per100": {
+    "kcal": 87,
+    "p": 1.9,
+    "c": 20,
+    "f": 0.1
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 medium potato"
+   },
+   "cat": "side",
+   "piece": true
+  },
+  {
+   "id": "tama",
+   "name": "Tama (bamboo shoot) curry",
+   "nep": "तामा",
+   "aliases": [
+    "tama",
+    "tama ko tarkari",
+    "aloo tama",
+    "aloo tama bodi",
+    "tama bodi",
+    "bamboo shoot",
+    "aloo tama bodi tarkari"
+   ],
+   "per100": {
+    "kcal": 70,
+    "p": 3,
+    "c": 8,
+    "f": 3
+   },
+   "serving": {
+    "g": 150,
+    "label": "1 katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "mushroom",
+   "name": "Mushroom curry",
+   "nep": "च्याउ",
+   "aliases": [
+    "mushroom",
+    "chyau",
+    "chyau tarkari",
+    "mushroom curry",
+    "chaau"
+   ],
+   "per100": {
+    "kcal": 70,
+    "p": 3,
+    "c": 5,
+    "f": 4.5
+   },
+   "serving": {
+    "g": 120,
+    "label": "1 katori"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "masyaura",
+   "name": "Masyaura (dried lentil balls)",
+   "nep": "मस्यौरा",
+   "aliases": [
+    "masyaura",
+    "masaura",
+    "masyuara",
+    "masyaura curry",
+    "maseura"
+   ],
+   "per100": {
+    "kcal": 330,
+    "p": 22,
+    "c": 50,
+    "f": 4
+   },
+   "serving": {
+    "g": 30,
+    "label": "2-3 pieces dry"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "achar_tomato",
+   "name": "Golbheda achar (tomato pickle)",
+   "nep": "गोलभेडाको अचार",
+   "aliases": [
+    "tomato achar",
+    "golbheda achar",
+    "golbheda ko achar",
+    "tomato chutney",
+    "tomato pickle",
+    "timur achar",
+    "chutney",
+    "achar"
+   ],
+   "per100": {
+    "kcal": 80,
+    "p": 1.5,
+    "c": 10,
+    "f": 4
+   },
+   "serving": {
+    "g": 30,
+    "label": "2 tablespoons"
+   },
+   "cat": "side",
+   "piece": false
+  },
+  {
+   "id": "salad",
+   "name": "Salad (cucumber / tomato / onion)",
+   "nep": "सलाद",
+   "aliases": [
+    "salad",
+    "salat",
+    "kaachha tarkari",
+    "raw veggies",
+    "cucumber",
+    "kakro",
+    "kakra",
+    "mula salad"
+   ],
+   "per100": {
+    "kcal": 18,
+    "p": 0.8,
+    "c": 3.5,
+    "f": 0.2
+   },
+   "serving": {
+    "g": 80,
+    "label": "1 small plate"
+   },
+   "cat": "side",
+   "piece": false
+  }
+ ]
+}

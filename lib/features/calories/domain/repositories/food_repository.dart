@@ -11,7 +11,7 @@ abstract class FoodRepository {
   Future<Either<Failure, Unit>> deleteFood(Food food);
   Future<Either<Failure, Unit>> updateFood(Food food);
 
-  Future<Either<Failure, Food>> detectFoodFromImage(File image, {String? note});
+  Future<Either<Failure, Food>> detectFoodFromImage(File image, {String? note, List<File> moreImages});
 
   Future<Either<Failure, Food>> reestimateFood(Food current, String note, {File? image});
 

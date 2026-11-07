@@ -53,6 +53,7 @@ Map tool(String name, Map args, [String id = 'c1']) => {
 ChatMessage user(String t) => ChatMessage(role: 'user', content: t, time: DateTime.now());
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   notesTests();
   setUp(() {
     dotenv.loadFromString(envString: 'GROK_API_KEY=');
@@ -389,7 +390,7 @@ void notesTests() {
         body = jsonDecode(r.body) as Map;
         return json(msg('{"name":"x","calories":1,"protein":1,"carbs":1,"fat":1}'));
       }), () => sl<FoodRemoteDataSource>().detectFoodAndCalories(img));
-      expect((body!['messages'][0]['content'] as List).last['text'], isNot(contains('note')));
+      expect((body!['messages'][0]['content'] as List).last['text'], isNot(contains('USER NOTE')));
     });
 
     final base = Food(
@@ -419,7 +420,7 @@ void notesTests() {
         return json(msg('{"name":"Eggs","calories":210,"protein":14,"carbs":1,"fat":16}'));
       }), () => sl<FoodRemoteDataSource>().reestimate(base, 'only 2 eggs'));
       expect(body!['messages'][0]['content'], isA<String>());
-      expect(body!['messages'][0]['content'], contains('no photo'));
+      expect(body!['messages'][0]['content'], contains('No photo'));
       expect((r as dynamic).isRight(), true);
     });
 

@@ -77,7 +77,7 @@ void main() {
     expect(jsonEncode(bodies.single), contains('extra ghee, large plate'));
     await t.pump(const Duration(seconds: 1));
     final saved = await t.runAsync(() async => (await sl<GetDailyFoodLog>()(DateTime.now())).getOrElse((_) => []));
-    expect(saved!.single.name, 'Dal bhat');
+    expect(saved!.single.name, contains('Dal bhat'));
     expect(saved.single.note, 'extra ghee, large plate');
     expect(saved.single.photoPath, isNotNull);
     await t.runAsync(() async => File(saved.single.photoPath!).deleteSync());

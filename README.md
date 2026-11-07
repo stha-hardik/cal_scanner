@@ -33,7 +33,7 @@ Track what you eat. Understand your nutrition. Powered by AI.
 
 ### 📲 Download the app (Android)
 
-**[Download cal-ai-v1.9.0.apk](downloads/cal-ai-v1.9.0.apk?raw=true)** (about 61 MB)
+**[Download cal-ai-v1.10.0.apk](downloads/cal-ai-v1.10.0.apk?raw=true)** (about 61 MB)
 
 This APK has **no API key built in**, so it is safe to share. After installing:
 1. Get a free key at [console.groq.com](https://console.groq.com).
@@ -95,7 +95,7 @@ Cal AI is a Flutter mobile app that uses artificial intelligence to make calorie
 
 ## What changed in this fork
 
-Version **1.9.0**. Original app: Flutter + Cubit + local storage. Everything below was added on top.
+Version **1.10.0**. Original app: Flutter + Cubit + local storage. Everything below was added on top.
 
 ### AI and chat
 | Feature | What it does |
@@ -113,6 +113,19 @@ Version **1.9.0**. Original app: Flutter + Cubit + local storage. Everything bel
 | **Body recomposition goal** | A fourth goal next to lose, maintain and gain: a small deficit (10%, at most 300 kcal) with high protein (2.2 g/kg). |
 | **Goal changer** | Change your goal any time in Settings. Targets are recalculated from your saved profile. |
 | **Weekly workout slider** | Set how much you train this week (5 levels). Daily calories update immediately. |
+
+### Nepali food intelligence (new in 1.10.0)
+| Feature | What it does |
+| --- | --- |
+| **Nepali food table** | About 90 common foods (sel roti, gwaramari, dhido, momo, chatamari, yomari, dal bhat, sekuwa, chiya, sweets and more) with calories and macros per 100 g and a typical serving. Values are approximate typical-recipe estimates, not lab data. |
+| **Spelling-tolerant matching** | Roman-Nepali spellings are matched by sound, so "gualamari", "gwarmari" and "sel roti" all find the right food. Quantities in your note ("2 sel roti", "5 gwaramari") are used. |
+| **Smarter portions** | The vision model estimates grams and piece counts using your plate size and katori size (set in Settings) as a ruler, instead of guessing camera distance. |
+| **Two photos** | Optionally add a side photo so depth and height are easier to judge. |
+| **Web lookup** | For foods not in the table, the app asks `openai/gpt-oss-120b` with Groq's built-in web search for nutrition (switch off in Settings). Falls back to the AI estimate if it fails. |
+| **Breakdown** | Each meal shows what the AI saw, per item, with its source (table, web, your note or AI estimate). |
+| **Chat knowledge** | The chat AI also knows the table and uses it for Nepali foods you mention. |
+
+Portion estimates from a photo are typically off by 20-30 percent. Adding a note with counts is the most reliable fix.
 
 ### App and phone
 | Feature | What it does |

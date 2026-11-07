@@ -119,9 +119,9 @@ class FoodLogCubit extends Cubit<FoodLogState> {
     );
   }
 
-  Future<void> addMealFromImage(File image, {String? note}) async {
+  Future<void> addMealFromImage(File image, {String? note, List<File> moreImages = const []}) async {
     emit(state.copyWith(isScanning: true, selectedImage: image));
-    final result = await _detectFoodFromImage(image, note: note);
+    final result = await _detectFoodFromImage(image, note: note, moreImages: moreImages);
     PhotoCleaner.purge(); // old photos only; today's stay for up to 24 hours
     result.fold(
       (failure) {

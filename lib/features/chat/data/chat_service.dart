@@ -103,7 +103,11 @@ class ChatService {
     if (key.isEmpty) {
       throw Exception('Missing API key. Add it in Settings.');
     }
-    final system = await ChatContext.build();
+    final recentUser = history.where((m) => m.role == 'user').toList();
+    final recentText = recentUser.length > 3
+        ? recentUser.sublist(recentUser.length - 3).map((m) => m.content).join(' . ')
+        : recentUser.map((m) => m.content).join(' . ');
+    final system = await ChatContext.build(recentUserText: recentText);
     final recent = history.length > _historyLimit
         ? history.sublist(history.length - _historyLimit)
         : history;

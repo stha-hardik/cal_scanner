@@ -67,8 +67,8 @@ class FoodRepositoryImpl implements FoodRepository {
   }
 
   @override
-  Future<Either<Failure, Food>> detectFoodFromImage(File image, {String? note}) {
-    return _remote.detectFoodAndCalories(image, note: note);
+  Future<Either<Failure, Food>> detectFoodFromImage(File image, {String? note, List<File> moreImages = const []}) {
+    return _remote.detectFoodAndCalories(image, note: note, moreImages: moreImages);
   }
 
   @override
